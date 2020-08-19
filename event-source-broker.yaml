@@ -2,11 +2,12 @@ apiVersion: sources.eventing.knative.dev/v1alpha1
 kind: ContainerSource
 metadata:
   name: heartbeat-event-source
+  namespace: serverless-example
 spec:
   image: quay.io/openshift-knative/knative-eventing-sources-heartbeats:v0.5.0
   args:
     - '--label="Thanks for doing Knative Tutorial"'
-    - '--period=1'
+    - '--period=10'
   env:
     - name: POD_NAME
       valueFrom:
